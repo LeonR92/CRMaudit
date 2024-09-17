@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Insurance Company</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto mt-10">
+        <div class="bg-white p-8 rounded-lg shadow-lg">
+            <h1 class="text-3xl font-bold mb-6 text-blue-600">Update Insurance Company</h1>
+            <form action="/crm/update_company" method="POST">
+                <!-- Select Company Dropdown -->
+                <div class="mb-6">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="company_id">
+                        Select Company to Update
+                    </label>
+                    <select id="company_id" name="company_id" class="shadow border rounded w-full py-2 px-3 text-gray-700">
+                        <option value="">Select Company</option>
+                        {% for company in companies %}
+                            <option value="{{ company.id }}">{{ company.mandantenname }}</option>
+                        {% endfor %}
+                    </select>
+                    
+                </div>
+                
+                <!-- Mandantkürzel Field -->
+                <div class="mb-6">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="mandantkuerzel">
+                        Mandantkürzel
+                    </label>
+                    <input id="mandantkuerzel" name="mandantkuerzel" type="text" placeholder="Enter new Mandantkürzel"
+                           class="shadow border rounded w-full py-2 px-3 text-gray-700">
+                </div>
+
+                <!-- Mandantenname Field -->
+                <div class="mb-6">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="mandantenname">
+                        Mandantenname
+                    </label>
+                    <input id="mandantenname" name="mandantenname" type="text" placeholder="Enter new Mandantenname"
+                           class="shadow border rounded w-full py-2 px-3 text-gray-700">
+                </div>
+
+                <!-- Parent Company Dropdown -->
+                <div class="mb-6">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="parent_company">
+                        Parent Company
+                    </label>
+                    <select id="parent_company" name="parent_company" class="shadow border rounded w-full py-2 px-3 text-gray-700">
+                        <option value="">Select Parent</option>
+                        <!-- Populate options dynamically from the database -->
+                    </select>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="flex justify-end">
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg">
+                        Update Company
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
