@@ -14,7 +14,7 @@ def get_connection():
 # Insert 1000 fake companies into BD_versicherungsunternehmen
 def populate_versicherungsunternehmen(cur, fake: Faker):
     versicherungsunternehmen_ids = []
-    for _ in range(1000):
+    for _ in range(100000):
         mandantkuerzel = fake.bothify(text="??###")[:10]
         mandantenname = fake.company()
         parent_id = random.choice([None] + versicherungsunternehmen_ids)
@@ -30,7 +30,7 @@ def populate_versicherungsunternehmen(cur, fake: Faker):
 
 # Insert 20000 fake contacts into Kontaktperson
 def populate_kontaktperson(cur, fake: Faker, versicherungsunternehmen_ids):
-    for _ in range(20000):
+    for _ in range(2000000):
         versicherungsunternehmen_id = random.choice(versicherungsunternehmen_ids)
         name = fake.name()
         email = fake.email()
