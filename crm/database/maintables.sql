@@ -7,6 +7,8 @@ CREATE TABLE BD_versicherungsunternehmen (
 );
 
 CREATE INDEX idx_mandantkuerzel ON BD_versicherungsunternehmen (mandantkuerzel);
+CREATE INDEX idx_parent_id_fk ON BD_versicherungsunternehmen (parent_id);
+
 
 CREATE TABLE Kontaktperson (
     id SERIAL PRIMARY KEY,

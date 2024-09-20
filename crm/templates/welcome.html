@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stress Test Page</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Query Results</h1>
+    <p>Query executed in {{ execution_time }} seconds</p>
+    <p>Page loaded in {{ total_load_time }} seconds</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Parent ID</th>
+                <th>Parent Name</th>
+                <th>Subsidiary ID</th>
+                <th>Subsidiary Name</th>
+                <th>Contact Person Name</th>
+                <th>Contact Email</th>
+                <th>Contact Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in results %}
+            <tr>
+                <td>{{ row.parent_id }}</td>
+                <td>{{ row.parent_name }}</td>
+                <td>{{ row.subsidiary_id }}</td>
+                <td>{{ row.subsidiary_name }}</td>
+                <td>{{ row.kontaktperson_name }}</td>
+                <td>{{ row.kontaktperson_email }}</td>
+                <td>{{ row.kontaktperson_phone }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="7">No data available</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
